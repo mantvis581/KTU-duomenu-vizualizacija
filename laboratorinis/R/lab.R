@@ -1,0 +1,67 @@
+library(tidyverse)
+library(readr)
+library(ggplot2)
+
+data = read_csv("../data/lab_sodra.csv")%>%
+filter(ecoActCode == 692000)
+summary(data)
+
+# 1 uzduotis
+
+data %>%
+  ggplot(aes(x = avgWage)) +
+  geom_histogram(bins = 100,
+                 color = "black",
+                 fill = "cyan") +
+  xlab("Average wage") +
+  ylab("Number of companies") +
+  labs(title="Average wage per month") +
+  theme_light()
+
+
+# 2 uzduotis
+
+data <- data %>%
+  mutate(month_value=as.integer(substr(month, 5 ,7)))
+
+data1 = data %>%
+  group_by(name) %>%
+  summarise(n=mean(avgWage)) %>%
+  arrange(desc(n))
+
+data2 <- merge(data, data1)
+
+data2 %>%
+  arrange(desc(n)) %>%
+  head(60) %>%
+  ggplot(aes(x = month_value, y = avgWage, group = name)) +
+  xlab("Month") +
+  ylab("Average wage") +
+  theme_light()+
+  scale_x_continuous("month",breaks=1:12,limits=c(1,12)) +
+  geom_line(aes(colour = name),
+            linetype = "longdash") +
+  theme(legend.title = element_text(face="bold")) +
+  theme(legend.background = element_rect(fill = "lightblue",
+                                         colour = "black")) +
+  theme(legend.position = "bottom") +
+  geom_point(aes(colour = name))
+
+# 3 uzduotis
+
+data2 %>%
+  arrange(desc(n)) %>%
+  head(60) %>%
+  group_by(name) %>%
+  slice_max(numInsured, with_ties = FALSE) %>%
+  head(5) %>%
+  ggplot(aes(x = reorder(name, -numInsured), y = numInsured)) +
+  geom_col(aes(fill = name)) +
+  theme(axis.text.x = element_blank()) +
+  theme_light() +
+  xlab("Company name") +
+  ylab("Number of insurred employees") +
+  theme(legend.title = element_text(face="bold")) +
+  theme(legend.background = element_rect(fill = "lightblue",
+                                         colour = "black")) +
+  theme(legend.position = "top")

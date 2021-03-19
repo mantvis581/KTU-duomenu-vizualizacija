@@ -2,36 +2,36 @@
 
 | Variantas | ecoActCode |
 |------------- | ------------- |
-|18   | 123456 |
+|15   | 692000 |
 
 ### 1. Užduotis
 
 Atsakymas:
 
-![histograma](img/pavyzdys1.png)
+![histograma](img/1 uzduotis.png)
 
-Išvados:
+Išvados: Apskaitos, buhalterijos ir audito veiklos imonese maziausias vidutinis atlyginimas 3.87 eurai, vidutinis 967.17, o didziausias 10223.43.
 
 ### 2. Užduotis
 
 Atsakymas:
 
-![atlyginimai](img/pavyzdys2.png)
+![atlyginimai](img/2 uzduotis.png)
 
-Išvados:
+Išvados: Top 5 imones, kuriu vidutiniai atlyginimai didziausi: UAB HD FOREST, ETL-BALTIC GROUP, UAB, UAB CEOCORP, "AHLSTROM-MUNKSJO VILNIUS", UAB, UAB SKAITMENINE REKLAMA. Daugmaz visu imoniu vidutiniai atlyginimai svyravo visus metus. Didziausius suolius padare imone UAB HD FOREST metu pradzioje ir pabaigoje. Taip tuo laiku suolius turejo ir imone UAB CEOCORP, taciau zenkliai mazesnius.
 
 
 ### 3. Užduotis
 
 Atsakymas:
 
-![apdraustieji](img/pavyzdys3.png)
+![apdraustieji](img/3 uzduotis.png)
 
-Išvados:
+Išvados: Is pries tai minetu imoniu daugiausiai apdraustu darbuotoju turi imone ETL-BALTIC GROUP, UAB (16), kitos stabiliai nuo 8 iki 5.
 
 
 ### 4. Užduotis
 
 Shiny R aplikacijos nuotrauka:
 
-![shiny app](img/shiny_example.png)
+![shiny app](img/ShinyApp.png)
